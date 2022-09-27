@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		List Making
+	</title>
+</head>
+<body  style="font-size: 20px">
+	<h2>List Making</h2>
+	<b>String: </b><br>
+	<textarea type="text" id="txt" onkeyup="check(this)"></textarea><br><br>
+	<input type="submit" id="sub" onclick="bullet()" disabled><br><br>
+	<script> 
+		function bullet() 
+		{
+			var x = document.createElement('UL');
+			x.setAttribute('id', 'myUL');
+			document.body.appendChild(x);
+			var y = document.createElement('LI');
+			var t = document.createTextNode(document.getElementById('txt').value);
+			y.appendChild(t);
+			document.getElementById('myUL').appendChild(y);
+		}
+		function check(t) 
+		{
+			var sub = document.getElementById('sub');
+			if (t.value != '') 
+			{
+				sub.disabled = false;
+			}
+			else 
+			{
+				sub.disabled = true;
+			}
+		}
+	</script>
+</body>
+</html>

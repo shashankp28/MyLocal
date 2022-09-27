@@ -1,0 +1,75 @@
+body{
+	background-image: url("img.png");
+	background-size: cover;
+}
+input[type=submit]{
+  background-color: skyblue;
+  color: brown;
+  padding: 16px 32px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+h1{
+	border: 5px solid red;
+	padding: 22px;
+	width: 50%;
+	text-align: center;
+	color: white;
+	background-color: green;
+	font-size: 30px;
+}
+label {
+	font-size: 30px;
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+input[type=text], input[type=number]{
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 5px;
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+label {
+	font-size: 30px;
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+#book th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: green;
+  color: white;
+  border: 1px solid #ddd;
+}
+#book {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+#book td{
+	background-color: white;
+	padding: 8px;
+	border: 1px solid black;
+	text-align: center;
+}
+.parent {
+  text-align: center;
+}
+.child {
+	text-align: center;
+  display: inline-block;
+  border: 5px solid red;
+  width: 49%;
+}
+p{
+	background-color: black;
+	color: white;
+	font-size: 30px;
+	width: 50%;
+}

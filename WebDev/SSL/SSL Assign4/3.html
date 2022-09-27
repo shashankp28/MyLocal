@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Most Frequent character
+	</title>
+</head>
+<body>
+	<h2>Most Frequent character</h2>
+	<b style="font-size: 20px">String: </b> <input type="text" id="str"> <br><br>
+	<button onclick="count()">Calculate</button><br><br>
+	<p id="res"  style="font-size: 25px">
+	<script>
+		function count()
+		{
+			var s = document.getElementById("str").value.split(","), chr, cm, c=0, max=0, i=0;
+			while(s.length!=0)
+			{
+				chr = s[0];
+				c=0;
+				i=0;
+				while(i<s.length)
+				{
+					if(s[i] === chr)
+					{
+						c++;
+						s.splice(i, 1);
+						continue;
+					}
+					i++;
+				}
+				if(c>max)
+				{
+					max = c;
+					cm = chr;
+				}
+			}
+			document.getElementById("res").innerHTML = "Most Frequent character: "+cm+"<br>"+"Number of occurrences: "+max;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Drivers License Eligibility Check
+	</title>
+</head>
+<body>
+	<h2>Drivers License Eligibility Check</h2>
+	<b style="font-size: 20px">Age:</b> <input type="number" id="age"> <br><br>
+	<button onclick="checkage()">Submit</button>
+	<p id="result" style="font-size: 25px"></p>
+	<script>
+		function checkage()
+		{
+			var age = parseInt(document.getElementById("age").value);
+			if(age<18 || age>100)
+			{
+				document.getElementById("result").innerHTML = "You are not eligible! Age has to be between 18 and 100.";
+			}
+			else
+			{
+				document.getElementById("result").innerHTML = "You are eligible!";
+			}
+		}
+	</script>
+</body>
+</html>

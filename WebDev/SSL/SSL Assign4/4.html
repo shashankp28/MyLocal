@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		User Information
+	</title>
+</head>
+<body style="font-size: 25px">
+	<h2>User Information</h2>
+	<b>Name: </b> <input type="text" id="nam"> <br><br>
+	<b>Address: </b><br> <textarea id="add"></textarea><br><br>
+	<b>Phone Number: </b> <input type="number" min="1" step="1" id="phn"> <br><br>
+	<b>Email ID: </b> <input type="text" id="eid"> <br><br>
+	<b>Educational Qualifications: </b> <input type="text" id="eqf"> <br><br>
+	<b>Age: </b> <input type="number" min="1" step="1" id="age"> <br><br>
+	<button onclick="display()">Display</button><br><br>
+	<table id="tab" style="display:none;">
+		<tr bgcolor="#808080">
+			<b><td>User.Name</td></b>
+			<td id="tnam"></td>
+		</tr>
+		<tr bgcolor="#A9A9A9">
+			<td>User.Address</td>
+			<td id="tadd"></td>
+		</tr>
+		<tr bgcolor="#808080">
+			<td>User.Phone Number</td>
+			<td id="tphn"></td>
+		</tr>
+		<tr bgcolor="#A9A9A9">
+			<td>User.EmailID</td>
+			<td id="teid"></td>
+		</tr>
+		<tr bgcolor="#808080">
+			<td>User.Educational Qualifications</td>
+			<td id="teqf"></td>
+		</tr>
+		<tr bgcolor="#A9A9A9">
+			<td>User.Age</td>
+			<td id="tage"></td>
+		</tr>
+	</table>
+	<script>
+		function display()
+		{
+			document.getElementById('tab').style.display='block';
+			class User 
+			{
+				constructor(nam, add, phn, eid, eqf, age) 
+				{
+					this.nam = nam;
+					this.add = add;
+					this.phn = phn;
+					this.eid = eid;
+					this.eqf = eqf;
+					this.age = age;
+				}
+			}
+			var a = document.getElementById("nam").value;
+			var b = document.getElementById("add").value;
+			var c = document.getElementById("phn").value;
+			var d = document.getElementById("eid").value;
+			var e = document.getElementById("eqf").value;
+			var f = document.getElementById("age").value;
+			const tUser = new User(a, b, c, d, e, f);
+			document.getElementById("tnam").innerHTML = tUser.nam;
+			document.getElementById("tadd").innerHTML = tUser.add;
+			document.getElementById("tphn").innerHTML = tUser.phn;
+			document.getElementById("teid").innerHTML = tUser.eid;
+			document.getElementById("teqf").innerHTML = tUser.eqf;
+			document.getElementById("tage").innerHTML = tUser.age;
+		}	
+	</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SSL Assignment</title>
+  <link rel="stylesheet" href="style.css">
+</style>
+</head>
+<body>
+  <header>
+    <h1 align="center">A Survey on Art</h1>
+    <h4 align="center" style="font-size: 25px"></i>"From one artist to another"</i></h4>
+  </header>
+  <div style="float: left ;width: 50%; height: 10%; background-color: black; color: white;">
+  <blockquote style="font-size: 25px;">"The object of art is not to reproduce reality, but to create a reality of the same intensity."</blockquote><cite style="font-size: 25px;">-Alberto Giacometti</cite></div>
+  <div style="float: left; width: 50%; height: 30%; background-color: yellow;"><p align="center">The following website is intended to collect your opinion on Art. Art can be of any form, it can be pleasant to hear such as <span style="color:purple";><em>MUSIC</em></span>, or it can be very beautiful to see such as <span style="color:purple;"><em>PAINTINGS, SCULPTURES</em></span> etc.</p></div><br>
+  <section>
+  <h2>What is Art?</h2>
+  <span style="font-size: 25px;">Art is a diverse range of (and products of) human activities involving creative imagination to express technical proficiency, beauty, emotional power, or conceptual ideas.</span>
+  </section>
+  <section>
+  <h2>How old is Art?</h2>
+  <span style="font-size: 25px;">Sculptures, cave paintings, rock paintings and petroglyphs from the Upper Paleolithic dating to roughly 40,000 years ago have been found, but the precise meaning of such art is often disputed because so little is known about the cultures that produced them.</span>
+</section> <br><br>
+  <div style="width: 100%; height: 10%;" align="center"><span style="font-size: 25px; color: red;"><u>Here we will provide a list of famous artisits and their arts including their Era</u></span></div><br><br>
+  <table id="art" align="center";>
+  <tr>
+    <th>Art</th>
+    <th>Artist</th>
+    <th>Era</th>
+  </tr>
+  <tr>
+    <td>Mona Lisa</td>
+    <td rowspan="2">Leonardo da Vinci</td>
+    <td>1503 to 1519</td>
+  </tr>
+  <tr>
+    <td>The Last Supper</td>
+    <td>1495 to 1498</td>
+  </tr>
+  <tr>
+    <td>The Starry Night</td>
+    <td>Vincent van Gogh</td>
+    <td>1889</td>
+  </tr>
+  <tr>
+    <td>The Scream</td>
+    <td>Edvard Munch</td>
+    <td>1893</td>
+  </tr>
+  <tr>
+    <td>Girl With a Pearl Earring</td>
+    <td>Johannes Vermeer</td>
+    <td>1665</td>
+  </tr>
+  <caption align="left" style="font-size: 25px";><b>Art and their Artists</b></caption>
+</table>
+<p>In this survey we will be showing you the following forms of art:</p>
+<ol>
+  <li><i>Video</i></li>
+  <li><i>Audio</i></li>
+  <li><i>Image</i></li>
+</ol>
+<p>Then we will ask some quetions based on the <mark>Audio-Visuals</mark> that have been shown. Questions such as:</p>
+<ul>
+  <li>If you have seen such an art form before</li>
+  <li>Your opinion on the art form</li>
+  <li>How you would rate the shown art forms</li>
+</ul>
+<center>
+<h2>A) Sand Art</h2>
+<video width="680" height="480" controls>
+  <caption align="left" style="font-size: 25px";><b>Sand Art</b></caption>
+  <source src="pot.mp4" type="video/mp4">
+</video>
+<h2>B) Jal Tarang</h2>
+<audio controls>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<h2>C) Warli Art</h2>
+<img src="warli.jpg" width="190" height="320">
+<img src="warli2.jpg" width="190" height="320">
+<p style="clear: both;">
+</center>
+<p>After looking at the above forms of art carefully, please answer the quetions below:</p>
+<form action="mailto:megamewtube150@gmail.com" method="post" enctype="text/plain">
+  <label for="fname"><b>Name:</b></label><br>
+  <input type="text" id="name" name="name" required><br><br>
+  <b>Which one of the above art forms have you seen or heard before?</b><br>
+  <input type="checkbox" id="art1" name="art1" value="sand">
+  <label for="art1"> Sand Art</label><br>
+  <input type="checkbox" id="art2" name="art2" value="jal">
+  <label for="art2"> Jal Tarang</label><br>
+  <input type="checkbox" id="art3" name="art3" value="warli">
+  <label for="art3"> Warli Art</label><br>
+  <label for="sp"><b>How would you rate Sand Art?</b></label>
+  <input type="range" id="sp" name="sp" min="1" max="10"><br>
+  <label for="jp"><b>How would you rate Jal Tarang?</b></label>
+  <input type="range" id="jp" name="jp" min="1" max="10"><br>
+  <label for="wp"><b>How would you rate Warli Art?</b></label>
+  <input type="range" id="wp" name="wp" min="1" max="10"><br>
+  <br>
+  <b>Please comment your views on modern art.</b><br>
+  <textarea rows = "5" cols = "60" name = "comment" required></textarea><br>
+  <input type="submit" value="Submit"> <input type="reset" value="Reset">
+</form>
+</body>
+</html>

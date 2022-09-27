@@ -927,3 +927,5 @@ captures/
 
 # Keystore files
 *.jks
+
+*.mp4

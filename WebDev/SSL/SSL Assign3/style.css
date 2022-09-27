@@ -1,0 +1,9 @@
+body {background-color: green;}
+h1 {color: red; font-size: 60px;}
+h2 {color: orangered; font-size: 35px;}
+p {color: blue; font-size: 30px;}
+table, th, td {border: 1px solid black;}
+#art {width: 70%; background-color: yellow; border: 1px solid black;}
+ol, ul {font-size: 30px; color: red;}
+form {font-size: 25px;}
+img {float: left; width: 30%; margin-right: 5%; margin-left: 10%; margin-bottom: 0.5em;}

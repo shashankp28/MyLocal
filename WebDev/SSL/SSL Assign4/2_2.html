@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		GCD
+	</title>
+</head>
+<body>
+	<h2>Find GCD of two numbers</h2>
+	<b style="font-size: 20px">First number, a = </b> <input type="number" min="1" step="1" id="a"> <br><br>
+	<b style="font-size: 20px">Second number, b = </b> <input type="number" min="1" step="1" id="b"> <br><br>
+	<button onclick="gcd()">Calculate</button><br><br>
+	<p id="result"  style="font-size: 25px"></p>
+	<script>
+		function gcd()
+		{
+			var a = parseInt(document.getElementById("a").value);
+			var b = parseInt(document.getElementById("b").value);
+			while(a!=b)
+			{
+				if(a<b)
+				{
+					b-=a;
+				}
+				else
+				{
+					a-=b;
+				}
+			}
+			document.getElementById("result").innerHTML = "GCD of a and b = " + a;
+		}
+	</script>
+</body>
+</html>

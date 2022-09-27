@@ -1,0 +1,6 @@
+install nodejs
+install npm
+
+npx create-react-app <name>
+go in that dir
+"npm start"

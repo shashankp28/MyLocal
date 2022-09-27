@@ -1,0 +1,76 @@
+body{
+	background-image: url("img.png");
+	background-size: cover;
+}
+p{
+	color: black;
+	width: 60%;
+	font-size: 30px;
+}
+ul {
+    text-align: center;
+    list-style-position: inside;
+	background-color: lightgreen;
+	width: 50%;
+}
+li{
+	text-align: center;
+	font-size: 30px;
+}
+input[type=submit], input[type=file]{
+  background-color: skyblue;
+  color: brown;
+  padding: 16px 32px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+h1{
+	padding: 22px;
+	width: 20%;
+	text-align: center;
+	color: yellow;
+	background-color: black;
+	font-size: 30px;
+}
+h3{
+	padding: 22px;
+	width: 30%;
+	text-align: center;
+	color: green;
+	background-color: black;
+	font-size: 30px;
+}
+h4{
+	padding: 22px;
+	width: 10%;
+	text-align: center;
+	color: skyblue;
+	background-color: black;
+	font-size: 20px;
+}
+img {
+	display: block;
+	border: 10px solid red;
+}
+input[type=text], input[type=password] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 5px;
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+label {
+	font-size: 30px;
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+#imgtab {
+  display: block;
+}
+#imgtab td {
+  display: inline-block;
+}

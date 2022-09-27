@@ -1,0 +1,20 @@
+<body>
+    <h3>Enter some values in the text to enable the button!</h3>
+    <input type="text" id="txt" onkeyup="manage(this)" >
+    <input type="submit" id="sub" disabled onclick="">
+</body>
+<script>
+	function manage(t) 
+	{
+        var sub = document.getElementById('sub');
+        if (t.value != '') 
+		{
+            sub.disabled = false;
+        }
+        else 
+		{
+            sub.disabled = true;
+        }
+    }    
+</script>
+</html>

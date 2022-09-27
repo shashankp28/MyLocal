@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Fibonacci numbers
+	</title>
+</head>
+<body>
+	<h2>First 𝑛 Fibonacci numbers</h2>
+	<b style="font-size: 20px">n = </b> <input type="number" min="1" step="1" id="n"> <br><br>
+	<button onclick="fib()">Generate</button><br><br>
+	<p id="result"  style="font-size: 25px"></p>
+	<script>
+		function fib()
+		{
+			var n = parseInt(document.getElementById("n").value);
+			let s=[];
+			for(var i=0; i<n; i++)
+			{
+				if(i<2)
+				{
+					s.push(i);
+				}
+				else
+				{
+					s.push(s[i-1]+s[i-2]);
+				}
+			}
+			document.getElementById("result").innerHTML = "First "+n+" numbers are: "+s.join(", ");
+		}
+	</script>
+</body>
+</html>
