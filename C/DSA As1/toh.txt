@@ -1,0 +1,3 @@
+Push disk 1 to Stack A
+Pop disk 1 from Stack A
+Push disk 1 to Stack C

@@ -1,0 +1,72 @@
+docker build -t getting-started
+
+docker run -dp 3000:3000 getting-started
+
+docker login -u YOUR-USER-NAME
+
+docker tag getting-started YOUR-USER-NAME/getting-started
+
+docker push YOUR-USER-NAME/getting-started
+
+sudo docker ps
+
+docker exec <container-id> cat /data.txt
+
+docker stop
+
+docker rm
+
+docker run -dp 3000:3000 \
+     -w /app -v "$(pwd):/app" \
+     node:12-alpine \
+     sh -c "yarn install && yarn run dev"
+     
+docker network create todo-app
+
+ocker run -d \
+     --network todo-app --network-alias mysql \
+     -v todo-mysql-data:/var/lib/mysql \
+     -e MYSQL_ROOT_PASSWORD=secret \
+     -e MYSQL_DATABASE=todos \
+     mysql:5.7
+     
+docker exec -it <mysql-container-id> mysql -u root -p
+
+dig mysql
+
+docker run -dp 3000:3000 \
+   -w /app -v "$(pwd):/app" \
+   --network todo-app \
+   -e MYSQL_HOST=mysql \
+   -e MYSQL_USER=root \
+   -e MYSQL_PASSWORD=secret \
+   -e MYSQL_DB=todos \
+   node:12-alpine \
+   sh -c "yarn install && yarn run dev"
+   
+docker exec -it <mysql-container-id> mysql -p todos
+
+docker-compose up -d
+
+docker scan getting-started
+
+docker image history --no-trunc getting-started
+
+ FROM node:12-alpine
+ WORKDIR /app
+ COPY package.json yarn.lock ./
+ RUN yarn install --production
+ COPY . .
+ CMD ["node", "src/index.js"]
+ 
+ 
+
+###################### Dockerfile #########################
+# syntax=docker/dockerfile:1
+FROM node:12-alpine
+RUN apk add --no-cache python2 g++ make
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
+EXPOSE 3000

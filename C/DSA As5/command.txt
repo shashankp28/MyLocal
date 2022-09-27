@@ -1,0 +1,1 @@
+200010048 words.txt 25000 query1.txt
