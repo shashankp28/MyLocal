@@ -1,0 +1,175 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usefonttheme{serif}
+\title{Assignment-2}
+\subtitle{Software Systems Lab}
+\author{Shashank P}
+\institute{IIT Dharwad \\ \url{https://www.iitdh.ac.in/}}
+\date{August 11, 2021}
+\titlegraphic{\includegraphics[width=2.7cm, height=2.3cm]{image 2.jpeg}}
+\begin{document}
+	\frame{\titlepage}
+	\begin{frame}
+		\frametitle{Dynamic Programming}
+		\begin{itemize}
+			\item Characteristics of Dynamic Programming
+			\begin{enumerate}
+				\item \textit{Overlapping Sub-problems}
+				\begin{block}{1}
+					Subproblems are smaller versions of the original problem. Any
+					problem has overlapping sub-problems if finding its solution involves
+					solving the same subproblem multiple times.
+				\end{block}
+				\item \textit{Optimal Substructure}
+				\begin{block}{2}
+					Any problem has optimal substructure property if its overall optimal
+					solution can be constructed from the optimal solutions of its
+					subproblems.
+				\end{block}
+			\end{enumerate}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{DP Methods}
+		\begin{itemize}
+			\item<1-> \textbf{Top-down with Memoization}
+			\begin{block}{1}
+				In this approach, we try to solve the bigger problem by
+				recursively finding the solution to smaller sub-problems.
+				Whenever we solve a sub-problem, we cache its result so that
+				we don't end up solving it repeatedly if it's called multiple
+				times. Instead, we can just return the saved result.
+			\end{block}
+			\item<2-> \textbf{Bottom-up with Tabulation}
+			\begin{alertblock}{2}
+				Tabulation is the opposite of the top-down approach and avoids
+				recursion. In this approach, we solve the problem ``bottom-up"
+				(i.e. by solving all the related sub-problems first).
+			\end{alertblock}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\transsplitverticalin
+		\label{dac}
+		\frametitle{Algorithms}
+		\begin{itemize}
+			\setbeamercovered{transparent}
+			\item<1-> Divide and conquer
+			\item<2-> Greedy Algorithm
+			\item<3-> Dynamic Programming
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Divide and Conquer}
+		\only<1>{Example: \\
+			\textbf{Quick-Sort: The average case run time of quick sort is}
+			$O(n*log\,n)$.\textbf{This case happens when we don't exactly
+				get evenly balanced partitions.}}
+		\only<2>{\alert{Example:} \\
+			Merge-Sort: \textcolor{orange}{The time complexity of Merge Sort is $O(n*log\,n).$
+				Merge Sort is useful for sorting linked lists in $O(n*log\,n)$ time.}}
+	\end{frame}
+	\begin{frame}
+		\setbeamercovered{dynamic}
+		\frametitle{Hyperlinks}
+		\begin{itemize}
+			\item \hyperlink{dac}{Divide and Conquer}
+			\item \hyperlink{dac}{\beamergotobutton{Greedy Algorithm}}
+			\item \hyperlink{dac}{\beamerskipbutton{Dynamic Programming}}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{List of Data Structures}
+		\setbeamercovered{transparent}
+		\begin{itemize}
+			\item<1-> Primitive
+			\item<2-> Non-Primitive \newline
+		\end{itemize}
+			\begin{itemize}
+				\setlength{\itemindent}{.3in}
+				\item<3-> \textit{Linear}
+				\begin{itemize}
+					\setlength{\itemindent}{.3in}
+					\item<4-> \textbf{Static}
+					\begin{enumerate}
+						\setlength{\itemindent}{.1in}
+						\item<5-> Array \newline
+					\end{enumerate}
+					\setlength{\itemindent}{.1in}
+					\item<4-> \textbf{Dynamic}
+					\begin{enumerate}
+						\setlength{\itemindent}{.1in}
+						\item<5-> Linked List
+						\item<5-> Stack
+						\item<5-> Queue \newline
+					\end{enumerate}
+				\end{itemize}
+				\item<6-> \textit{Non-Linear}
+				\begin{enumerate}
+					\setlength{\itemindent}{.1in}
+					\item<6-> Tree
+					\item<6-> Graph
+				\end{enumerate}
+			\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Data Structures}
+		\begin{figure}
+			\includegraphics[scale=0.28]{image 1.jpeg}
+			\caption{1}
+		\end{figure}
+	\end{frame}
+	\begin{frame}
+		\begin{center}
+			\begin{table}
+				\begin{tabular}{|l|c|c|c|}
+					\hline
+					Algorithm & Best Case & Average Case & Worst Case \\ 
+					\hline \hline
+					Linear Search & $O(1)$ & $O(n)$ & $O(n)$ \\
+					Binary Search & $O(1)$ & $O(log\,n)$ & $O(log\,n)$ \\
+					Bubble sort & $O(n)$ & $O(n^2)$ & $O(n^2)$ \\ 
+					Selection sort & $O(n^2)$ & $O(n^2)$ & $O(n^2)$ \\
+					\hline    
+				\end{tabular}
+				\caption{1}
+			\end{table}
+		\end{center}
+		\begin{theorem}[Trigonometric Identity]
+			$Sin^2 \theta + Cos^2 \theta = 1$
+		\end{theorem}
+	\end{frame}
+	\begin{frame}
+		\begin{theorem}
+			Let a, b, c be lengths of right angled triangle.\\
+			\textbf{By definition}
+			$$sin \theta = b/c \, \left(\frac{oppositeside}{hypotenuse}\right)$$
+			$$cos \theta = a/c \, \left(\frac{adjacentside}{hypotenuse}\right)$$
+			$sin^2 \theta + cos^2 \theta = \frac{b^2}{c^2} + \frac{a^2}{c^2} = \frac{a^2+b^2}{c^2}$ \newline \newline
+			\textbf{From Pythagoras theorem} \\ \vspace{0.4cm}
+			$c^2 = a^2 + b^2$ \newline \newline
+			$\frac{a^2+b^2}{c^2} = 1 \implies sin^2 \theta + cos^2 \theta = 1$ \newline \newline
+			\textbf{Hence Proved.}
+		\end{theorem}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Multi-line equations}
+		\begin{multline*}
+			f(x) = x^6 + 7x^3y + 50x^3y^2 + 12x^2y^4\\ 
+			- 19x^5y^4 - 10x^7y^6 + 7y^6 - m^3n^3 \notag
+		\end{multline*}
+		\begin{equation}
+			\begin{split}
+				\rho \Delta x \Delta y \Delta z \Delta \tau \partial_t c_i(t,x,\tau) &= \rho \Delta x \Delta y \Delta z \Delta \tau (p_i - d_i) \\ 
+				&- \rho \Delta y, \Delta z \Delta \tau [q_{i,x}(t,x + \Delta x/2, y, z, \tau ) \\
+				& \quad \quad - q_{i,x}(t,x - \Delta x/2, y, z, \tau )] \\
+				&- \rho \Delta x, \Delta z \Delta \tau [q_{i,y}(t,x, y + \Delta y/2, y , z, \tau ) \\
+				& \quad \quad- q_{i,y}(t,x , y - \Delta y/2,z,  z, \tau )] \\
+				&- \rho \Delta x \Delta y \Delta \tau [q_{i,z}(t,x, y, z + \Delta z/2, \tau ) \\
+				& \quad \quad -q_{i,z}(t, x, y, z - \Delta z/2, \tau )] \notag
+			\end{split}
+		\end{equation}
+	\end{frame}
+\end{document}

@@ -1,0 +1,1 @@
+pred = predict(Theta1, Theta2, X);

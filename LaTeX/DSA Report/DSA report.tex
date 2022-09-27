@@ -1,0 +1,102 @@
+\documentclass[30pt]{article}
+\usepackage{mathptmx}
+\usepackage[11pt]{moresize}
+\usepackage{hyperref}
+\usepackage{authblk} %affiliation
+\usepackage{algorithm2e}
+\usepackage{color}
+\begin{document}
+	\title{\HUGE DSA Project Report LUMBERJACK}
+     \vspace{60em}
+	\author{ \LARGE \textbf {Team Detail} \\ 
+		Bhavesh Borse \\ \texttt{200010005@iitdh.ac.in \\}
+		Eshita Pagare \\ \texttt{200010016@iitdh.ac.in \\}
+		Harrithha \\ \texttt{200010018@iitdh.ac.in \\}
+		Shashank P \\ \texttt{200010048@iitdh.ac.in}}
+	%\affil{Department of Computer Science,\\ IIT Dharwad}
+	\date{}
+	\maketitle
+\newpage
+\begin{center}
+   \Large \textbf{Abstract}
+\end{center}
+This  paper describes the ideas, heuristics, algorithms and program witten by \textbf{Quad\_Bytes} for the \textit{\href{https://www.optil.io/optilion/problem/3000}{Lumberjack}} problem present in optil.io.
+\section{Data Structures used}
+\begin{itemize}
+\item \textbf{t, n, k} : Stores time, size of grid, number of trees
+\item \textbf{2D List} : Stores  of details of each tree, i.e. trees[0][i] keeps track of x, y coordinates, height, thickness, unit weight and unit value of the first tree.
+\item \textbf{1D Lists and Array} : For storing present coordinates, direction of cut, nearest tree from present coordinates, several temporary arrays in the functions.
+\end{itemize}
+\section{Functions used in program}
+\begin{itemize}
+    \item \textbf{sort(sub\_li, n) } : Sorts the input 2D list (sub\_li) according to the nth index of each element(list).
+    \item \textbf{distance(x1, x2, y1, y2) } : Calculates distance between two points (x1, y1) and (x2, y2).
+    \item \textbf{nearest(p\_x, p\_y, trees, t, sen) } Depending on whether sen(profit obtained on cutting a tree) is 0 or 1(profit $>$ 3904), our optimizing factor temp\_div is assigned value. From present coordinates(p\_x, p\_y), finds the tree whose  
+    \begin{center}
+         $\frac{\textrm{distance from present position + time taken to cut tree}}{\textrm{temp\_div}}$
+    \end{center}
+    is minimum and returns the index of that tree.
+    \item \textbf{value\_cut(sub, trees) } : For each tree(sub) in trees 2D List, checks for domino effect in each of the 4 directions(up, right, down, left) in case we cut that particular tree. Returns an array of 2 elements: Maximum value of profit on cutting sub, the direction where this profit is obtained.
+    \item \textbf{traversal(p\_x, p\_y, f\_x, f\_y, t) } : Moves the lumberjack from present coordinates(p\_x, p\_y) to new coordinates(f\_x, f\_y) and in the process updates the time from t to t – time taken to move from present to new coordinates.
+    \item \textbf{cut(sub, trees, dir) } : Cuts nearest tree(sub) in a particular direction(dir) and checks for domino effect according to given conditions in the question and removes the cut trees from the trees 2D List.
+\end{itemize}
+\newpage
+
+\section{Complexity Analysis}
+\begin{algorithm}
+%\setlength\parindent{24pt}
+\Function{SORT($sub\_li$, $n$)} { \\
+\hspace{1cm} sub\_li.sort($key=lambda x: x[n]$) \\
+\hspace{1cm}\Return{$sub\_li$} 
+
+}
+\end{algorithm}
+The Python list \textbf{sort()} uses \textbf{Timsort} algorithm. The algorithm has 
+runtime complexity of \textcolor{red}{$O(n.log(n))$}. 
+
+\begin{algorithm}
+\Function{DISTANCE($x_1$,\ $x_2$,\ $y_1$,\ $y_2$)}{ \\
+\hspace{1cm} \Return{$abs(x_1 - x_2) + abs(y_1 - y_2)$}
+}
+\end{algorithm}
+
+\begin{algorithm}
+NEAREST($P\_x$,\ $P\_y$,\ $trees$,\ $t$,\ $sen$)  \\
+\hspace{1cm}$dmin,same,k = [float('inf'),[ ],len(trees)]$ \\
+\hspace{1cm}\textbf{\textit{for}}$i $ in\ range(k)    ........\textcolor{red}{$O(log(n))$}\\
+\hspace{1.7cm}\textbf{\textit{if}}$distance(.....)$\ \ \ \ \ \ \ \ \ \ ......\textcolor{red}{$O(1)$}\\
+\hspace{1.8cm}  \textbf{\textit{continue}} \\
+\hspace{1.7cm}\textbf{\textit{if}}$sen==0:$ \ \ \ \ \ \ \ \ \ \ \ \ \ \.......\textcolor{red}{$O(1)$} \\
+\hspace{1.7cm}\textbf{\textit{if}}$sen==1:$ \ \ \ \ \ \ \ \ \ \ \ \ ........\textcolor{red}{$O(1)$} \\
+\hspace{1.7cm}\textbf{\textit{if}}$(trees[i][0]==p_x and trees[i][1]==p_y) or d>dmin:$ .......\textcolor{red}{$O(1)$}\\
+\hspace{1.8cm}  \textbf{\textit{continue}} \\   
+\hspace{1.7cm}\textbf{\textit{if}}$d==dmin:$ ........\textcolor{red}{$O(1)$} \\
+\hspace{1.9cm}  \textbf{\textit{if}}$distance(...)<distance(...)++trees[same[0]][5]$ .......\textcolor{red}{$O(1)$} \\ 
+\hspace{1.7cm}\textbf{\textit{if}}$d<dmin:$ ...........\textcolor{red}{$O(1)$} \\
+\hspace{1.9cm}$dmin = d$\\
+\hspace{1.9cm}$same = []$\\
+\hspace{1.9cm}$same.append(i)$\\
+\hspace{1.9cm}\textbf{\textit{continue}}    
+\end{algorithm} 
+
+\begin{algorithm}
+TRAVERSAL($p\_x,\ p\_y,\ f\_x,\ f\_y,\ t$) :\\
+\hspace{1cm}\textbf{\textit{while}}\ $p\_x<f\_x$ :\ \ \ \ \ ....\textcolor{red}{$O(n^2)$}\\
+\hspace{1.7cm}\textbf{\textit{if}}\ $t==0$: \\
+\hspace{2.1cm}$t -= 1$ \\
+\hspace{2.1cm}$ print('move right')$  \\
+\hspace{2.1cm}$ p\_x += 1$ \\
+
+\hspace{1cm}\textbf{\textit{while}}\ $p\_y<f\_y$ :\ \ \ \ \ ....\textcolor{red}{$O(n^2)$}\\
+\hspace{1.7cm}\ \{\ ...\ \}
+
+\hspace{1cm}\textbf{\textit{while}}\ $p\_x>f\_x$ :\ \ \ \ \ ....\textcolor{red}{$O(n^2)$}\\
+\hspace{1.7cm}\textbf{\textit{if}}\ $t==0$: \\
+\hspace{2.1cm}$t -= 1$ \\
+\hspace{2.1cm}$ print('move left')$  \\
+\hspace{2.1cm}$ p\_x += 1$ \\
+
+\hspace{1cm}\textbf{\textit{while}}\ $p\_y>f\_y$ :\ \ \ \ \ ....\textcolor{red}{$O(n^2)$}\\
+\hspace{1.7cm}\ \{\ ...\ \}
+\end{algorithm}
+\end{document}
