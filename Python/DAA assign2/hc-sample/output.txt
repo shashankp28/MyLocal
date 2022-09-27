@@ -1,0 +1,12 @@
+dh:2
+ir:2
+sdh:3
+irn:4
+tu:4
+esdh:6
+yirn:7
+otu:8
+' 'esdh:11
+yirnotu:15
+' 'esdhyirnotu:26
+you see the irony dont you

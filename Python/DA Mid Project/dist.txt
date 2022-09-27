@@ -1,0 +1,16 @@
+for i in range(50000):
+    temp = np.random.uniform(-3, 3)
+    for j in range(k):
+        temp += 10*np.random.exponential(l, 1)[0]
+    f.write(str(round(temp, 7))+'\n')
+for i in range(50000):
+    temp = np.random.uniform(-3, 3)
+    for j in range(k):
+        temp += 10*np.random.rayleigh(l, 1)[0]
+    f.write(str(round(temp, 7))+'\n')
+for i in range(50000):
+    temp = np.random.uniform(-3, 3)
+    for j in range(k):
+        x = np.random.uniform(0, 40)
+        temp += 10*halfnorm.rvs(scale = l,  size = 1)[0]
+    f.write(str(round(temp, 7))+'\n')

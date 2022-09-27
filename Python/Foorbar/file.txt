@@ -1,0 +1,5 @@
+<encrypted>
+CE8SBgsCCxgDFRgJElQPExYJFUlHUBVbXF4fDQAUHQRJS0oSH1ZBBw0EHg0FSUdQFV1VVBwaFQBP QVRLV1tWUEAWDAgRBARJR1AVWVBaGg0XFgUEAB9XEgITFQYGDRwLCgsPVx4YFEASCgMaHBJJS0oS H0BTFQ1GX0hGCAQfFRgJElQfCB1JRhM= 
+</encrypted>
+
+b"{'success' : 'great', 'colleague' : 'esteemed', 'efforts' : 'incredible', 'achievement' : 'unlocked', 'rabbits' : 'safe', 'foo' : 'win!'}"

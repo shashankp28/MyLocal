@@ -1,0 +1,8 @@
+ch:2
+no:2
+sch:3
+nosch:5
+t' ':8
+anosch:10
+t' 'anosch:18
+a cat sat on a hat

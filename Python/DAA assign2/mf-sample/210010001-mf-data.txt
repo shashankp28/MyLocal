@@ -1,0 +1,12 @@
+8 11
+a t 13
+c t 12
+c f 5
+b t 17
+f a 15
+f b 26
+f e 25
+f d 1
+s c 30
+s b 3
+s d 7

@@ -1,0 +1,55 @@
+\documentclass[30pt a4paper]{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\renewcommand{\baselinestretch}{1.5} 
+\begin{document}
+	\Large
+	\begin{center}
+		\Large EE 201: Data Analysis Project (Autumn 2021) \\
+		\large
+		\hspace{10pt}
+		Shashank P \\
+		200010048@iitdh.ac.in\\
+	\end{center}
+	\normalsize
+\textbf{\Large Question 2 \\}
+\normalsize
+	Given $Z = X + 10Y$ $\implies$ $Z - X = 10Y$, 
+	Taking Expection and Variance on both sides: \\
+	$\mathbb{E}\,[Z-X] = 10\,\mathbb{E}[Y]$ ; $Var\,[Z-X] = 100\,Var\,[Y]$ \\
+	$X(a, b)$: Uniform random variable with $a=-3$, $b=3$ and	$\mathbb{E}\,[X] = \frac{a+b}{2} = 0$ \\
+	$Y$:$\,\,$$\sum_{i=1}^{k}W_i$ and $W_i$'s are i.i.d $\implies$ $\mathbb{E}\,[Y] = k\,\mathbb{E}\,[W]$ and $Var\,[Y] = kVar[W]$ \\
+	The eqautions we get are: \\
+	\begin{equation}
+		\mathbb{E}\,[Z] = 10\,k\,\mathbb{E}[W]
+	\end{equation}
+	\begin{equation}
+		Var\,[Z-X]^* = 100\,k\,Var[W]
+	\end{equation} 
+ 	\bigskip
+	\textit{\small * [$Z-X$ can be obtained by subtracting each $Z_i$ data with a uniform R.V. $X(-3, 3)$]}
+	\large \medskip
+	 On doing the following operation $\frac{Eq(1)^2}{Eq(2)}$: \\
+	 $\frac{\mathbb{E}\,[Z]^2}{Var\,[Z-X]} = k\,\frac{\mathbb{E}[W]^2}{Var[W]}$ $\implies$ $k = \left(\frac{Var[W]}{\mathbb{E}[W]^2} \right)\,\frac{\mathbb{E}\,[Z]^2}{Var\,[Z-X]}$
+	\begin{itemize}
+		\item \underline{\textbf{Exponential distribution}}\\
+			$\mathbb{E}\,[W] = \frac{1}{\lambda}$ and $Var[W] = \frac{1}{\lambda^2}$ \\
+			$\implies$ $\boxed{k = \frac{\mathbb{E}\,[Z]^2}{Var\,[Z-X]}}$ 
+			Using (1): $\boxed{\frac{1}{\lambda} = \frac{\mathbb{E}\,[Z]}{10k}}$ \\
+		\item \underline{\textbf{Rayleigh distribution}} \\
+			$\mathbb{E}\,[W] = \sigma \sqrt{\frac{\pi}{2}}$ and $Var[W] = \sigma^2 (\frac{4-\pi}{2})$ \\
+			$\implies$ $\boxed{k = \left(\frac{4-\pi}{\pi} \right)\,\frac{\mathbb{E}\,[Z]^2}{Var\,[Z-X]}}$
+			Using (1): $\boxed{\sigma = \frac{\mathbb{E}\,[Z]}{10k}\,\sqrt{\frac{2}{\pi}}}$ \medskip
+		\item \underline{\textbf{Half-normal distribution}} \\
+			$\mathbb{E}\,[W] = \sigma \sqrt{\frac{2}{\pi}}$ and $Var[W] = \sigma^2 (\frac{\pi-2}{\pi})$ \\
+			$\implies$ $\boxed{k = \left(\frac{\pi-2}{2} \right)\,\frac{\mathbb{E}\,[Z]^2}{Var\,[Z-X]}}$
+			Using (1): $\boxed{\sigma = \frac{\mathbb{E}\,[Z]}{10k}\,\sqrt{\frac{\pi}{2}}}$
+	\end{itemize} \bigskip
+On comparing, we select the distribution whose '$k$' value is closest to $\{2, 3, 4\}$. Then using the '$k$' value we can compute the parameter of the corresponding distribution as shown above. \\ \medskip
+\underline{\textbf{Computation for the given data:}}\\ \medskip
+\textbf{Distribution:} Exponential \\ \medskip
+\textbf{k = } 2\\ \medskip
+\textbf{Parameter $\frac{1}{\lambda}$ = } 4 \small *nearest integer
+\end{document}

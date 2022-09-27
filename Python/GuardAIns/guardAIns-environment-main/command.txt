@@ -1,0 +1,8 @@
+cd /mnt/d/Programming/GuardAIns/guardAIns-environment-main
+python3 main.py localhost 8000
+
+cd /mnt/d/Programming/GuardAIns/guardAIns-environment-main
+bash run.sh "http://127.0.0.1" 8000 "gameRoom" "player1" "player1"
+
+cd /mnt/d/Programming/GuardAIns/guardAIns-environment-main
+bash run.sh "http://127.0.0.1" 8000 "gameRoom" "player2" "player2"

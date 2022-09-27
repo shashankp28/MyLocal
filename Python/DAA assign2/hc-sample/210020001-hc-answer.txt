@@ -1,0 +1,15 @@
+bf:2
+ga:3
+bfd:4
+hi:4
+su:4
+gao:6
+rbfd:7
+ehi:8
+nsu:8
+gaot:12
+' 'rbfd:14
+ehinsu:16
+gaot' 'rbfd:26
+ehinsugaot' 'rbfd:42
+there is nothing to fear but to understand

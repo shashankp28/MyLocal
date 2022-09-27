@@ -1,0 +1,16 @@
+cf:2
+gl:2
+rcf:3
+dgl:4
+pt:4
+wh:5
+rcfdgl:7
+pts:8
+en:10
+whi:11
+arcfdgl:14
+pts' ':17
+enwhi:21
+arcfdglpts' ':31
+enwhiarcfdglpts' ':52
+as if happiness is waiting ahead in the new calendar

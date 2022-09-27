@@ -1,0 +1,22 @@
+[
+    {
+        "Blonde Innocent": false,
+        "White Innocent": true,
+        "Old Innocent": true,
+        "Brunette Innocent": true,
+        "Blonde Spoke to Art": false,
+        "Blonde didn't Speak to Art": true,
+        "Brunette is killer": false,
+        "The Men killed Art": false
+    },
+    {
+        "Blonde Innocent": false,
+        "White Innocent": true,
+        "Old Innocent": true,
+        "Brunette Innocent": true,
+        "Blonde Spoke to Art": true,
+        "Blonde didn't Speak to Art": false,
+        "Brunette is killer": false,
+        "The Men killed Art": false
+    }
+]

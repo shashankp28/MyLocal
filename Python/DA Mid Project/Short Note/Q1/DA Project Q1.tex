@@ -1,0 +1,51 @@
+\documentclass[30pt a4paper]{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\renewcommand{\baselinestretch}{1.5} 
+\begin{document}
+	\Large
+	\begin{center}
+		\Large EE 201: Data Analysis Project (Autumn 2021) \\
+		\large
+		\hspace{10pt}
+		Shashank P \\
+		200010048@iitdh.ac.in\\
+	\end{center}
+	\normalsize
+\textbf{\Large Question 1 \\}
+	Consider three random variables, $X, Y, N$ \\
+	Let the bias of the coin be $p$\\
+	$X:$ Takes values $0$ and $5$ with probability $1-p$ and $p$ respectively. \\
+	$N(\mu, \sigma^2):$ Gaussian noise with Mean $\mu$, Variance $\sigma^2$ \par
+	Let $Y = X + N$, according to the problem statement, $Y$ is the random variable of recieved data. Also $X=0$ for $n\le1000$, where $n$ is the trial number. Taking expectation on both sides:\\
+	\begin{equation}\mathbb{E}\,[Y] = \mathbb{E}\,[X] + \mathbb{E}\,[N] \end{equation} 
+	When $n\le1000:$ 
+	\begin{equation} 
+		\mathbb{E}\,[Y] = \mathbb{E}\,[N] = \mu 
+	\end{equation}
+	\begin{equation}
+		Var[Y] = Var[\,0+ N] = Var[N] = \sigma^2 
+	\end{equation}
+	$\mathbb{E}\,[Y] \approx mean(Y_i,$ $i$ from $a$ to $b) = \mu$ and \\ 
+	$Var[Y] \approx var(Y_i,$ $i$ from $a$ to $b) = \sigma^2$  as $n$ is very large \\
+	When $1000<n\le10000$, Using Equations $(1)$ \& $(2)$:
+	\begin{align*} 
+		&\mathbb{E}\,[Y] = \mathbb{E}\,[X] + \mu \notag \newline \notag \\
+		\implies& mean(Y_i, 1001, 10000) = (5p + 0(1-p)) + mean(Y_i, 1, 1000) \notag \\
+		\implies& mean(Y_i, 1001, 10000) - mean(Y_i, 1, 1000) = 5p \notag
+	\end{align*}
+\begin{equation}
+	\implies\boxed{ p = \frac{mean(Y_i, 1001, 10000) - mean(Y_i, 1, 1000)}{5}} \notag
+\end{equation}
+On Running the data through Q1.py program:
+\begin{equation}
+	\boxed{\mu = 2.0} \hspace{1cm} \boxed{\sigma^2 = 1.5} \hspace{1cm} \boxed{p = 0.6} \notag
+\end{equation}
+PDF of Gaussian Noise:
+\begin{equation}
+\boxed{f(x) = \frac{1}{\sqrt{2\pi(1.5)}} 
+\exp\left( -\frac{1}{2}\frac{(x-2.0)^{\,2}}{1.5}\,\right)} \notag
+\end{equation}
+\end{document}

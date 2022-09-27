@@ -1,0 +1,16 @@
+fg:2
+ij:2
+kt:2
+uy:2
+ad:4
+fgij:4
+ktuy:4
+wl:5
+sad:7
+fgijktuy:8
+owl:9
+n' ':13
+sadfgijktuy:15
+owln' ':22
+sadfgijktuyowln' ':37
+no sky no land just snow falling down

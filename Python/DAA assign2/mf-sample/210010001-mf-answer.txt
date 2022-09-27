@@ -1,0 +1,3 @@
+s c t 12
+s b t 3
+s c f a t 5

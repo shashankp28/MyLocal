@@ -1,0 +1,13 @@
+8 11
+a e 3
+c t 13
+b t 6
+b f 16
+d t 10
+d f 23
+f a 27
+f c 11
+s a 5
+s c 24
+s b 11
+
