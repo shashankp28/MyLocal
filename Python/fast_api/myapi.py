@@ -1,8 +1,6 @@
-from fastapi import FastAPI, Path
-from typing import Optional
-from pydantic import BaseModel
-
+from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/")
-def 
+def my_func():
+    return {"Hi": "Hello"}
