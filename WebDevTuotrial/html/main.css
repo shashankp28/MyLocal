@@ -18,3 +18,24 @@ a:visited {
 a:hover, a:active {
     color: #eee
 }
+
+#responsive-image-logo {
+    width: 20%;
+    height: auto;
+}
+
+#responsive-image {
+    width: 30%;
+    height: auto;
+}
+
+table,
+tr,
+th,
+td,
+caption {
+    border: 1px solid #eee;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    padding: 0.5rem;
+}
