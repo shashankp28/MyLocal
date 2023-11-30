@@ -1,5 +1,5 @@
 """
-Code to break RSA encryption
+Code to implement RSA encryption
 """
 import math
 import random
