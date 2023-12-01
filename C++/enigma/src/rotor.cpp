@@ -1,11 +1,18 @@
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 #include "rotor.h"
 
 using namespace std;
 
-Rotor::Rotor(int rotorNumber, int rotorConfig[26], int notchPosition)
+Rotor::Rotor(int rotorNumber, vector<int> rotorConfig, int notchPosition)
 {
+    if (rotorConfig.size() != 26)
+    {
+        throw invalid_argument("Rotor configuration is invalid");
+    }
+    this->rotorConfig = vector<int>(26, -1);
+    this->reverseRotorConfig = vector<int>(26, -1);
     this->rotorNumber = rotorNumber;
     this->currentPosition = 0;
     if (notchPosition < 0 || notchPosition > 25)
@@ -13,10 +20,6 @@ Rotor::Rotor(int rotorNumber, int rotorConfig[26], int notchPosition)
         throw invalid_argument("Notch position is invalid");
     }
     this->notchPosition = notchPosition;
-    for (int i = 0; i < 26; i++)
-    {
-        this->rotorConfig[i] = -1;
-    }
     for (int i = 0; i < 26; i++)
     {
         if (rotorConfig[i] < 0 || rotorConfig[i] > 25)

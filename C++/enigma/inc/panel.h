@@ -1,16 +1,19 @@
 #ifndef FRONT_PANEL_H
 #define FRONT_PANEL_H
 #include <utility>
+#include <vector>
+
 using namespace std;
 
 class FrontPanel
 {
 
 private:
-    int frontPanelConfig[26];
+    vector<int> frontPanelConfig;
+    vector<int> reverseFrontPanelConfig;
 
 public:
-    FrontPanel(pair<int, int> frontPanelConfig[10]);
+    FrontPanel(vector<pair<int, int>> frontPanelConfig);
     int getPatch(int index);
     void printFrontPanel();
 };

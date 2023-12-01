@@ -1,13 +1,16 @@
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 #include "reflector.h"
 
-Reflector::Reflector(pair<int, int> reflectorConfig[13])
+Reflector::Reflector(vector<pair<int, int>> reflectorConfig)
 {
-    for (int i = 0; i < 26; i++)
+    if (reflectorConfig.size() != 13)
     {
-        this->reflectorConfig[i] = -1;
+        throw invalid_argument("Reflector configuration is invalid");
     }
+    this->reflectorConfig = vector<int>(26, -1);
+
     for (int i = 0; i < 13; i++)
     {
         if (reflectorConfig[i].first < 0 || reflectorConfig[i].first > 25 ||

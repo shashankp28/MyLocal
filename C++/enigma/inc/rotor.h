@@ -1,5 +1,6 @@
 #ifndef ROTOR_H
 #define ROTOR_H
+#include <vector>
 
 class Rotor
 {
@@ -7,12 +8,12 @@ class Rotor
 private:
     int rotorNumber;
     int currentPosition;
-    int rotorConfig[26];
-    int reverseRotorConfig[26];
+    vector<int> rotorConfig;
+    vector<int> reverseRotorConfig;
     int notchPosition;
 
 public:
-    Rotor(int rotorNumber, int rotorConfig[26], int notchPosition);
+    Rotor(int rotorNumber, vector<int> rotorConfig, int notchPosition);
     int getRotorNumber();
     int getCurrentPosition();
     bool isNotchPosition();

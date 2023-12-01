@@ -1,16 +1,18 @@
 #ifndef REFLECTOR_H
 #define REFLECTOR_H
 #include <utility>
+#include <vector>
+
 using namespace std;
 
 class Reflector
 {
 
 private:
-    int reflectorConfig[26];
+    vector<int> reflectorConfig;
 
 public:
-    Reflector(pair<int, int> reflectorConfig[13]);
+    Reflector(vector<pair<int, int>> reflectorConfig);
     int getReflection(int index);
     void printReflector();
 };

@@ -1,15 +1,18 @@
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 #include "panel.h"
 
 using namespace std;
 
-FrontPanel::FrontPanel(pair<int, int> panelConfig[10])
+FrontPanel::FrontPanel(vector<pair<int, int>> panelConfig)
 {
-    for (int i = 0; i < 10; i++)
+    if (panelConfig.size() != 10)
     {
-        this->frontPanelConfig[i] = -1;
+        throw invalid_argument("Invalid front panel configuration");
     }
+    this->frontPanelConfig = vector<int>(26, -1);
+
     for (int i = 0; i < 10; i++)
     {
         if (panelConfig[i].first < 0 || panelConfig[i].first > 25 ||
