@@ -14,7 +14,7 @@ private:
     int notchPosition;
 
 public:
-    Rotor(int rotorNumber, vector<int> rotorConfig, int notchPosition);
+    Rotor(int rotorNumber, vector<int> rotorConfig);
     int getRotorNumber();
     int getCurrentPosition();
     bool isNotchPosition();

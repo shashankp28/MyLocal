@@ -19,6 +19,10 @@ Controller::Controller(Rotor *rotor1, Rotor *rotor2, Rotor *rotor3,
 
 char Controller::type(char input)
 {
+    if (input == ' ')
+    {
+        return ' ';
+    }
     if (input <= 'A' && input >= 'Z')
     {
         throw invalid_argument("Input is invalid");

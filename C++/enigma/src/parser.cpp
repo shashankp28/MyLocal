@@ -118,3 +118,64 @@ vector<pair<int, int>> parsePanel(string panelConf)
     }
     return panelConfig;
 }
+
+vector<vector<int>> parseRotors(map<string, string> &generalConfig,
+                                map<string, string> &specificConfig)
+{
+    vector<vector<int>> rotorConfigs;
+    vector<string> rotors = split(specificConfig["ROTORS"], " ");
+    if (rotors.size() != 3)
+    {
+        throw invalid_argument("Invalid rotor configuration: " + specificConfig["ROTORS"]);
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        string rotorName = rotors[i];
+        string rotorConf = generalConfig["ROTOR" + rotorName];
+        vector<int> rotorConfig;
+        if (rotorConf.size() != 26)
+        {
+            throw invalid_argument("Invalid rotor configuration: " + rotorConf);
+        }
+        unordered_set<char> used;
+        for (int j = 0; j < 26; j++)
+        {
+            int mapping = rotorConf[j] - 'A';
+            if (mapping < 0 || mapping > 25)
+            {
+                throw invalid_argument("Invalid rotor configuration: " + rotorConf);
+            }
+            if (used.find(mapping) == used.end())
+            {
+                rotorConfig.push_back(mapping);
+                used.insert(mapping);
+            }
+            else
+            {
+                throw invalid_argument("Invalid rotor configuration: " + rotorConf);
+            }
+        }
+        rotorConfigs.push_back(rotorConfig);
+    }
+    return rotorConfigs;
+}
+
+vector<int> parseRotortPositions(string rotorPositions)
+{
+    vector<int> rotorCurrentPositions;
+    vector<string> rotorPositionsSplit = split(rotorPositions, " ");
+    if (rotorPositionsSplit.size() != 3)
+    {
+        throw invalid_argument("Invalid rotor position configuration: " + rotorPositions);
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        int rotorPosition = stoi(rotorPositionsSplit[i]);
+        if (rotorPosition < 0 || rotorPosition > 25)
+        {
+            throw invalid_argument("Invalid rotor position configuration: " + rotorPositions);
+        }
+        rotorCurrentPositions.push_back(rotorPosition);
+    }
+    return rotorCurrentPositions;
+}

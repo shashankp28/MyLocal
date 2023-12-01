@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Rotor::Rotor(int rotorNumber, vector<int> rotorConfig, int notchPosition)
+Rotor::Rotor(int rotorNumber, vector<int> rotorConfig)
 {
     if (rotorConfig.size() != 26)
     {
@@ -15,18 +15,18 @@ Rotor::Rotor(int rotorNumber, vector<int> rotorConfig, int notchPosition)
     this->reverseRotorConfig = vector<int>(26, -1);
     this->rotorNumber = rotorNumber;
     this->currentPosition = 0;
+    this->notchPosition = 0;
     if (notchPosition < 0 || notchPosition > 25)
     {
         throw invalid_argument("Notch position is invalid");
     }
-    this->notchPosition = notchPosition;
     for (int i = 0; i < 26; i++)
     {
         if (rotorConfig[i] < 0 || rotorConfig[i] > 25)
         {
             throw invalid_argument("Rotor configuration is invalid");
         }
-        if (this->rotorConfig[rotorConfig[i]] != -1)
+        if (this->rotorConfig[i] != -1)
         {
             throw invalid_argument("Rotor configuration is invalid");
         }
@@ -70,7 +70,10 @@ int Rotor::getForwardMapping(int input)
     {
         throw invalid_argument("Input is invalid");
     }
-    return this->rotorConfig[input];
+    int positionMathcingInput = (input + this->currentPosition) % 26;
+    int output = this->rotorConfig[positionMathcingInput];
+    int positionMatchingOutput = (output - this->currentPosition + 26) % 26;
+    return positionMatchingOutput;
 }
 
 int Rotor::getReverseMapping(int input)
@@ -79,7 +82,10 @@ int Rotor::getReverseMapping(int input)
     {
         throw invalid_argument("Input is invalid");
     }
-    return this->reverseRotorConfig[input];
+    int positionMathcingInput = (input + this->currentPosition) % 26;
+    int output = this->reverseRotorConfig[positionMathcingInput];
+    int positionMatchingOutput = (output - this->currentPosition + 26) % 26;
+    return positionMatchingOutput;
 }
 
 void Rotor::printRotor()
@@ -87,15 +93,17 @@ void Rotor::printRotor()
     cout << "Rotor number: " << this->rotorNumber << endl;
     cout << "Current position: " << this->currentPosition << endl;
     cout << "Notch position: " << this->notchPosition << endl;
-    cout << "Rotor configuration: ";
+    cout << "Rotor configuration: \n";
     for (int i = 0; i < 26; i++)
     {
-        cout << this->rotorConfig[i] << " ";
-    }
-    cout << "Reverse rotor configuration: ";
-    for (int i = 0; i < 26; i++)
-    {
-        cout << this->reverseRotorConfig[i] << " ";
+        cout << (char)(i + 'A') << " -> " << (char)(this->rotorConfig[i] + 'A') << "\n";
     }
     cout << endl;
+    cout << "Reverse rotor configuration: \n";
+    for (int i = 0; i < 26; i++)
+    {
+        cout << (char)(i + 'A') << " -> " << (char)(this->reverseRotorConfig[i] + 'A') << "\n";
+    }
+    cout << endl
+         << endl;
 }

@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
 #include <unordered_set>
 #include "controller.h"
 #include "rotor.h"
@@ -23,10 +24,23 @@ int main(int argc, char *argv[])
     map<string, string> specificConfig = parseConfig(argv[2]);
     vector<pair<int, int>> reflectorConfig = parseReflector(generalConfig["REFLECTOR"]);
     vector<pair<int, int>> frontPanelConfig = parsePanel(specificConfig["PLUGBOARD"]);
+    vector<vector<int>> rotorConfigs = parseRotors(generalConfig, specificConfig);
+    vector<int> rotorPositions = parseRotortPositions(specificConfig["ROTOR_POSITIONS"]);
 
-    Reflector *reflecor = new Reflector(reflectorConfig);
+    Reflector *reflector = new Reflector(reflectorConfig);
     FrontPanel *frontPanel = new FrontPanel(frontPanelConfig);
-    reflecor->printReflector();
-    frontPanel->printFrontPanel();
+    Rotor *rotor1 = new Rotor(0, rotorConfigs[0]);
+    Rotor *rotor2 = new Rotor(1, rotorConfigs[1]);
+    Rotor *rotor3 = new Rotor(2, rotorConfigs[2]);
+    rotor1->setCurrentPosition(rotorPositions[0]);
+    rotor2->setCurrentPosition(rotorPositions[1]);
+    rotor3->setCurrentPosition(rotorPositions[2]);
+    Controller *controller = new Controller(rotor1, rotor2, rotor3, reflector, frontPanel);
+    string input;
+    cout << "Type a message to encrypt: \n";
+    getline(cin, input);
+    transform(input.begin(), input.end(), input.begin(), ::toupper);
+    string output = controller->run(input);
+    cout << "Encrypted message: " << output << endl;
     return 0;
 }
