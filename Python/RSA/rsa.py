@@ -12,7 +12,8 @@ class RSA:
     Class that implements the simple RSA algorithm
     """
 
-    def __init__(self, bits=1024):
+    def __init__(self, seed=10, bits=1024):
+        random.seed(seed)
         self.exclude = set()
         self.p = self.generate_random_prime(pow(2, bits - 1), pow(2, bits))
         self.exclude.add(self.p)
@@ -20,7 +21,7 @@ class RSA:
         self.n = self.p * self.q
         self.phi = (self.p - 1) * (self.q - 1)
         self.e = self.generate_public_key()
-        self.d = self.generate_private_key()
+        self.__d = self.generate_private_key()
 
     def generate_random_prime(self, min_val, max_val):
         """
@@ -78,7 +79,7 @@ class RSA:
             elif public:
                 encrypted.append(pow(ord(ch), self.e, self.n))
             else:
-                encrypted.append(pow(ord(ch), self.d, self.n))
+                encrypted.append(pow(ord(ch), self.__d, self.n))
         return encrypted
 
     def decrypt(self, encrypted: list, public: bool = False, key: tuple[int, int] = None) -> str:
@@ -92,8 +93,14 @@ class RSA:
             elif public:
                 decrypted += chr(pow(ch, self.e, self.n))
             else:
-                decrypted += chr(pow(ch, self.d, self.n))
+                decrypted += chr(pow(ch, self.__d, self.n))
         return decrypted
+
+    def match_private_key(self, key: int) -> bool:
+        """
+        Check if a given key matches the private key
+        """
+        return key == self.__d
 
 
 if __name__ == "__main__":
