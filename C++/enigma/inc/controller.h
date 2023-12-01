@@ -1,0 +1,16 @@
+#include "panel.h"
+#include "reflector.h"
+#include "rotor.h"
+
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
+
+class Controller
+{
+public:
+    Controller(Rotor *rotor1, Rotor *rotor2, Rotor *rotor3, Reflector *reflector, FrontPanel *frontPanel);
+    char type(char input);
+    void printEnigmaConfig();
+};
+
+#endif
