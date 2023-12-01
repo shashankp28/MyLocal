@@ -1,9 +1,7 @@
-#include <utility>
-
-using namespace std;
-
 #ifndef FRONT_PANEL_H
 #define FRONT_PANEL_H
+#include <utility>
+using namespace std;
 
 class FrontPanel
 {

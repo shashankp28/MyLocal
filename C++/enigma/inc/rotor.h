@@ -15,12 +15,11 @@ public:
     Rotor(int rotorNumber, int rotorConfig[26], int notchPosition);
     int getRotorNumber();
     int getCurrentPosition();
-    int getRotorConfig(int index);
-    int getNotchPosition();
     bool isNotchPosition();
     void setCurrentPosition(int position);
     void rotateRotor();
-    int getMapping(int input);
+    int getForwardMapping(int input);
+    int getReverseMapping(int input);
     void printRotor();
 };
 

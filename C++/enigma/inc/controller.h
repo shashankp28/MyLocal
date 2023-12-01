@@ -1,9 +1,8 @@
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 #include "panel.h"
 #include "reflector.h"
 #include "rotor.h"
-
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
 
 class Controller
 {
