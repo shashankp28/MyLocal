@@ -45,7 +45,7 @@ int FrontPanel::getPatch(int index)
 {
     if (index < 0 || index > 25)
     {
-        throw invalid_argument("Invalid index");
+        return index;
     }
     return this->frontPanelConfig[index];
 }

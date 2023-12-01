@@ -68,7 +68,7 @@ int Rotor::getForwardMapping(int input)
 {
     if (input < 0 || input > 25)
     {
-        throw invalid_argument("Input is invalid");
+        return input;
     }
     int positionMathcingInput = (input + this->currentPosition) % 26;
     int output = this->rotorConfig[positionMathcingInput];
@@ -80,7 +80,7 @@ int Rotor::getReverseMapping(int input)
 {
     if (input < 0 || input > 25)
     {
-        throw invalid_argument("Input is invalid");
+        return input;
     }
     int positionMathcingInput = (input + this->currentPosition) % 26;
     int output = this->reverseRotorConfig[positionMathcingInput];

@@ -37,10 +37,17 @@ int main(int argc, char *argv[])
     rotor3->setCurrentPosition(rotorPositions[2]);
     Controller *controller = new Controller(rotor1, rotor2, rotor3, reflector, frontPanel);
     string input;
-    cout << "Type a message to encrypt: \n";
-    getline(cin, input);
-    transform(input.begin(), input.end(), input.begin(), ::toupper);
-    string output = controller->run(input);
-    cout << "Encrypted message: " << output << endl;
+    while (1)
+    {
+        getline(cin, input);
+        if (input == "--exit--")
+        {
+            cout << "--exit--" << endl;
+            break;
+        }
+        transform(input.begin(), input.end(), input.begin(), ::toupper);
+        string output = controller->run(input);
+        cout << output << endl;
+    }
     return 0;
 }
