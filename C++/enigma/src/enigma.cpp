@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     vector<vector<int>> rotorConfigs = parseRotors(generalConfig, specificConfig);
     vector<int> rotorPositions = parseRotortPositions(specificConfig["ROTOR_POSITIONS"]);
 
+
     Reflector *reflector = new Reflector(reflectorConfig);
     FrontPanel *frontPanel = new FrontPanel(frontPanelConfig);
     Rotor *rotor1 = new Rotor(0, rotorConfigs[0]);

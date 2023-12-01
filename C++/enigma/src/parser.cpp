@@ -177,5 +177,11 @@ vector<int> parseRotortPositions(string rotorPositions)
         }
         rotorCurrentPositions.push_back(rotorPosition);
     }
+    if (rotorCurrentPositions[0] == rotorCurrentPositions[1] ||
+        rotorCurrentPositions[1] == rotorCurrentPositions[2] ||
+        rotorCurrentPositions[0] == rotorCurrentPositions[2])
+    {
+        throw invalid_argument("Invalid rotor position configuration: " + rotorPositions);
+    }
     return rotorCurrentPositions;
 }
