@@ -6,8 +6,17 @@
 
 class Controller
 {
+
+private:
+    Rotor *rotor1;
+    Rotor *rotor2;
+    Rotor *rotor3;
+    Reflector *reflector;
+    FrontPanel *frontPanel;
+
 public:
-    Controller(Rotor *rotor1, Rotor *rotor2, Rotor *rotor3, Reflector *reflector, FrontPanel *frontPanel);
+    Controller(Rotor *rotor1, Rotor *rotor2, Rotor *rotor3,
+               Reflector *reflector, FrontPanel *frontPanel);
     char type(char input);
     void printEnigmaConfig();
 };
