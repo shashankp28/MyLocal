@@ -10,5 +10,6 @@ using namespace std;
 vector<string> split(string s, string delimiter);
 map<string, string> parseConfig(string file_path);
 vector<pair<int, int>> parseReflector(string reflectorConf);
+vector<pair<int, int>> parsePanel(string panelConf);
 
 #endif

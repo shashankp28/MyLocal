@@ -59,6 +59,10 @@ vector<pair<int, int>> parseReflector(string reflectorConf)
     for (int i = 0; i < 26; i++)
     {
         int first = i, second = reflectorConf[i] - 'A';
+        if (first < 0 || first > 25 || second < 0 || second > 25 || first == second)
+        {
+            throw invalid_argument("Invalid reflector configuration: " + reflectorConf);
+        }
         if (used.find(first) == used.end() && used.find(second) == used.end())
         {
             reflectorConfig.push_back(make_pair(first, second));
@@ -79,4 +83,38 @@ vector<pair<int, int>> parseReflector(string reflectorConf)
         throw invalid_argument("Invalid reflector configuration: " + reflectorConf);
     }
     return reflectorConfig;
+}
+
+vector<pair<int, int>> parsePanel(string panelConf)
+{
+    vector<string> tokens = split(panelConf, " ");
+    vector<pair<int, int>> panelConfig;
+    if (tokens.size() != 10)
+    {
+        throw invalid_argument("Invalid panel configuration: " + panelConf);
+    }
+    unordered_set<char> used;
+    for (int i = 0; i < 10; i++)
+    {
+        int first = tokens[i][0] - 'A', second = tokens[i][1] - 'A';
+        if (first < 0 || first > 25 || second < 0 || second > 25 || first == second)
+        {
+            throw invalid_argument("Invalid panel configuration: " + panelConf);
+        }
+        if (used.find(first) == used.end() && used.find(second) == used.end())
+        {
+            panelConfig.push_back(make_pair(first, second));
+            used.insert(first);
+            used.insert(second);
+        }
+        else if (used.find(first) != used.end() && used.find(second) != used.end())
+        {
+            continue;
+        }
+        else
+        {
+            throw invalid_argument("Invalid panel configuration: " + panelConf);
+        }
+    }
+    return panelConfig;
 }

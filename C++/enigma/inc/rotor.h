@@ -1,6 +1,7 @@
 #ifndef ROTOR_H
 #define ROTOR_H
 #include <vector>
+using namespace std;
 
 class Rotor
 {
