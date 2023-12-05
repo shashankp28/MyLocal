@@ -1,5 +1,7 @@
 # The Enigma Machine
 
+### A Practical Implementation of the Infamous Enigma Machine in C++
+
 1. Clone the repository:
 
 ```
