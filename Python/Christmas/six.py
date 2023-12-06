@@ -7,11 +7,20 @@ with open("input6", "r", encoding='utf-8') as f:
     data = [int(''.join([x for x in line.split(' ') if x != '']))
             for line in lines]
     time, distance = data
-print(time, distance)
 
 
-count = 0
-for t in range(time+1):
-    if t * (time - t) > distance:
-        count += 1
-print("Count:", count)
+def get_index(t, d):
+    s, e = 0, t
+    result = 0
+    while s < e:
+        mid = (s + e) // 2
+        if mid * (2*t - mid) >= d:
+            result = mid
+            e = mid - 1
+        else:
+            s = mid + 1
+    return result
+
+
+i = get_index(time//2, distance)
+print(time - 2*i + 1)
