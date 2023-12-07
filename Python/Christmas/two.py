@@ -38,7 +38,7 @@ color_map = {
     "blue": BLUE
 }
 
-with open("input2_0", "r", encoding="utf-8") as f:
+with open("./inputs/input2_0", "r", encoding="utf-8") as f:
     TOTAL = 0
     for line in f.readlines():
         line = line.strip()

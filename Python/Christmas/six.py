@@ -1,6 +1,6 @@
 time, distance = 0, 0
 
-with open("input6", "r", encoding='utf-8') as f:
+with open("./inputs/input6", "r", encoding='utf-8') as f:
     lines = f.readlines()
     lines = [line.strip() for line in lines]
     lines = [line.split(':')[1].strip() for line in lines]

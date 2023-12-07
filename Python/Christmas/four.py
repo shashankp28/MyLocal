@@ -1,6 +1,6 @@
 match_data = []
 
-with open("input4", "r", encoding="utf-8") as f:
+with open("./inputs/input4", "r", encoding="utf-8") as f:
     total = 0
     for line in f.readlines():
         count = 0

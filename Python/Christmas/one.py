@@ -26,7 +26,7 @@ def extract_digits(code: str):
     return 10*decoded[0] + decoded[-1]
 
 
-with open("input2", "r", encoding="utf-8") as file:
+with open("./inputs/input2", "r", encoding="utf-8") as file:
     TOTAL = 0
     for line in file:
         extracted = extract_digits(line)

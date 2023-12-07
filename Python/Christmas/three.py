@@ -30,7 +30,7 @@ def check_valid(row, start, end, data):
     return is_valid
 
 
-with open("input3", "r", encoding="utf-8") as f:
+with open("./inputs/input3", "r", encoding="utf-8") as f:
     data = []
     for line in f.readlines():
         line = line.strip()

@@ -3,7 +3,7 @@ from tqdm import tqdm
 seed = []
 all_maps = []
 
-with open('input5', 'r', encoding='utf-8') as f:
+with open('./inputs/input5', 'r', encoding='utf-8') as f:
     lines = [x.strip() for x in f.readlines() if x != '\n']
 
 seeds = [x.strip().split() for x in lines[0].split(':')][1]
