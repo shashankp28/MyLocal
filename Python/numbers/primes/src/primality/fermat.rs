@@ -1,6 +1,8 @@
 use num_bigint::BigUint;
 use num_traits::One;
+use num_traits::one;
 use crate::operations::pow_mod;
+use crate::operations::gcd;
 
 pub fn fermat(num: &BigUint) -> bool {
     // Fermat's little theorem test for witnesses 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
@@ -15,7 +17,12 @@ pub fn fermat(num: &BigUint) -> bool {
         .map(|x| BigUint::from(*x as u32))
         .collect();
     for witness in witnesses {
-        if pow_mod(&witness, &(num - BigUint::one()), num) != BigUint::one() {
+        if gcd(&witness, num) != BigUint::one() {
+            continue;
+        }
+        let mod_value = pow_mod(&witness, &num, num);
+        let rhs = pow_mod(&witness, &BigUint::one(), &num);
+        if mod_value != rhs {
             return false;
         }
     }
