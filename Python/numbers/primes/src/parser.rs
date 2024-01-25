@@ -5,6 +5,7 @@ use num_bigint::BigUint;
 pub enum Action {
     Standard,
     Fermat,
+    MillerRabin,
     Generate,
     Power,
 }

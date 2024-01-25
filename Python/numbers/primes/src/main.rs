@@ -7,7 +7,7 @@ use clap::Parser;
 use std::time::Instant;
 use parser::Args;
 use generators::get_max_primes;
-use primality::{ standard, fermat };
+use primality::{ standard, fermat, miller_rabin };
 use operations::pow;
 
 fn main() {
@@ -35,6 +35,11 @@ fn main() {
             let maximum = args.get_maximum();
             let primes = get_max_primes(maximum);
             println!("Primes upto {}: {:?}", maximum, primes);
+        }
+        parser::Action::MillerRabin => {
+            let target = args.get_target();
+            let is_prime = miller_rabin(&target);
+            println!("Miller Rabin Test: {} is prime: {}", target, is_prime);
         }
     }
     let taken = now.elapsed();
