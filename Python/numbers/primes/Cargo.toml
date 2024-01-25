@@ -20,3 +20,4 @@ rpath = false
 num-bigint = "0.4.4"
 num-traits = "0.2.17"
 log = { version = "0.4", features = ["release_max_level_off"] }
+clap = "4.4.18"

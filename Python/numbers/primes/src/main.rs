@@ -16,15 +16,24 @@ fn main() {
         return;
     }
 
-    let maximum: u64 = args[1].parse().unwrap();
+    let maximum: u64 = 100;
+    let target: u64 = args[1].parse().unwrap();
 
     // Print prime numbers up to 100
+    let now = Instant::now();
     let primes = get_max_primes(maximum);
+    let elapsed = now.elapsed();
+    println!("Prime numbers upto {}, genrated in: {:?}", maximum, elapsed);
+
     println!("Number of primes up to {}: {}", maximum, primes.len());
-
+    println!("Last prime number: {}", primes.last().unwrap());
+    
     // Get the last prime number
-    let target = primes.last().unwrap().clone();
-
+    let target = BigUint::from(target);
+    // Print Prime power 2
+    println!("Prime power 2: {}", pow(&target, &BigUint::from(2u32)));
+    
+    println!();
     let now = Instant::now();
     let is_prime = standard(&target);
     let elapsed = now.elapsed();
@@ -35,6 +44,4 @@ fn main() {
     let elapsed = now.elapsed();
     println!("Fermat: {} is prime: {} in {:?}", target, is_prime, elapsed);
 
-    // Print Prime power 5
-    println!("Prime power 5: {}", pow(&target, &BigUint::from(5u32)));
 }
