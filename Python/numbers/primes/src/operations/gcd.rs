@@ -1,5 +1,5 @@
 use num_bigint::BigUint;
-use num_traits::{ One, Zero };
+use num_traits::Zero;
 
 pub fn gcd(a: &BigUint, b: &BigUint) -> BigUint {
     // Euclidean algorithm

@@ -2,7 +2,7 @@ use num_bigint::BigUint;
 use num_traits::{ One, Zero };
 
 pub fn standard(num: &BigUint) -> bool {
-    // Standard test for factors from 2 to sqrt(num)+1
+    // Standard test for prime factors from 2 to sqrt(num)+1
     if *num <= BigUint::one() {
         return false;
     }

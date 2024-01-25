@@ -1,22 +1,31 @@
 mod primality;
 mod operations;
+mod generators;
 
+use std::time::Instant;
+use generators::get_max_primes;
 use num_bigint::BigUint;
-use num_traits::One;
+use primality::{ standard, fermat };
+use operations::pow;
 
 fn main() {
-    let a_str = "1234567890123456789012345678901234567890";
-    let p_str = "9876543210987654321098765432109876543210";
+    // Print prime numbers up to 100
+    let primes = get_max_primes(1000);
+    println!("Primes up to 100: {:?}", primes);
 
-    let a = BigUint::parse_bytes(a_str.as_bytes(), 10).unwrap();
-    let p = BigUint::parse_bytes(p_str.as_bytes(), 10).unwrap();
+    // Get a random prime number
+    let target = primes[50].clone();
 
-    let a_val = BigUint::from(10u32).pow(50) + BigUint::one();
-    let p_val = BigUint::one() << (100 - 1);
+    let now = Instant::now();
+    let is_prime = standard(&target);
+    let elapsed = now.elapsed();
+    println!("Standard: {} is prime: {} in {:?}", target, is_prime, elapsed);
 
-    println!("Result: {}", a);
-    println!("Result: {}", p);
+    let now = Instant::now();
+    let is_prime = fermat(&target);
+    let elapsed = now.elapsed();
+    println!("Fermat: {} is prime: {} in {:?}", target, is_prime, elapsed);
 
-    println!("Result: {}", a_val);
-    println!("Result: {}", p_val);
+    // Print Prime power 5
+    println!("Prime power 5: {}", pow(&target, &BigUint::from(5u32)));
 }

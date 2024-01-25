@@ -1,6 +1,5 @@
 use num_bigint::BigUint;
 use num_traits::One;
-use num_traits::one;
 use crate::operations::pow_mod;
 use crate::operations::gcd;
 
