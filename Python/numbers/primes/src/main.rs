@@ -14,37 +14,28 @@ fn main() {
     let args = Args::parse();
 
     let now = Instant::now();
-    if args.analysis == parser::Analysis::Power {
-        let power = match args.power {
-            Some(power) => power,
-            None => {
-                println!("Use <exe> --help for more information (--power is required)");
-                return;
-            }
-        };
-        println!("Prime power {}: {}", args.target, pow(&args.target, &power));
-    } else if args.analysis == parser::Analysis::Standard {
-        let now = Instant::now();
-        let is_prime = standard(&args.target);
-        let elapsed = now.elapsed();
-        println!("Standard: {} is prime: {} in {:?}", args.target, is_prime, elapsed);
-    } else if args.analysis == parser::Analysis::Fermat {
-        let now = Instant::now();
-        let is_prime = fermat(&args.target);
-        let elapsed = now.elapsed();
-        println!("Fermat: {} is prime: {} in {:?}", args.target, is_prime, elapsed);
-    } else if args.analysis == parser::Analysis::Generate {
-        let maximum = match args.maximum {
-            Some(maximum) => maximum,
-            None => {
-                println!("Use <exe> --help for more information (--maximum is required)");
-                return;
-            }
-        };
-        let primes = get_max_primes(maximum);
-        println!("Primes upto {}: {:?}", maximum, primes);
-    } else {
-        println!("Use <exe> --help for more information");
+
+    match args.get_action() {
+        parser::Action::Power => {
+            let target = args.get_target();
+            let power = args.get_power();
+            println!("Prime power {}: {}", target, pow(&target, &power));
+        }
+        parser::Action::Standard => {
+            let target = args.get_target();
+            let is_prime = standard(&target);
+            println!("Standard Test: {} is prime: {}", target, is_prime);
+        }
+        parser::Action::Fermat => {
+            let target = args.get_target();
+            let is_prime = fermat(&target);
+            println!("Fermat Test: {} is prime: {}", target, is_prime);
+        }
+        parser::Action::Generate => {
+            let maximum = args.get_maximum();
+            let primes = get_max_primes(maximum);
+            println!("Primes upto {}: {:?}", maximum, primes);
+        }
     }
     let taken = now.elapsed();
     println!("Total time: {:?}", taken);
