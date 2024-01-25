@@ -9,12 +9,21 @@ use primality::{ standard, fermat };
 use operations::pow;
 
 fn main() {
-    // Print prime numbers up to 100
-    let primes = get_max_primes(1000);
-    println!("Primes up to 100: {:?}", primes);
+    // Take input command line argument
+    let args: Vec<String> = std::env::args().collect();
+    if args.len() != 2 {
+        println!("Usage: <executable> <prime number index>");
+        return;
+    }
 
-    // Get a random prime number
-    let target = primes[50].clone();
+    let maximum: u64 = args[1].parse().unwrap();
+
+    // Print prime numbers up to 100
+    let primes = get_max_primes(maximum);
+    println!("Number of primes up to {}: {}", maximum, primes.len());
+
+    // Get the last prime number
+    let target = primes.last().unwrap().clone();
 
     let now = Instant::now();
     let is_prime = standard(&target);
