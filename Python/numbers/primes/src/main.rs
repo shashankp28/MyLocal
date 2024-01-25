@@ -38,5 +38,5 @@ fn main() {
         }
     }
     let taken = now.elapsed();
-    println!("Total time: {:?}", taken);
+    eprint!("Total time: {:?}", taken);
 }
