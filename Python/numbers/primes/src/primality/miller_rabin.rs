@@ -60,6 +60,7 @@ pub fn miller_rabin(num: &BigUint) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::generators::get_max_primes;
 
     #[test]
     fn edge_cases() {
@@ -96,6 +97,15 @@ mod tests {
 
         for prime in primes {
             let prime = BigUint::parse_bytes(prime.as_bytes(), 10).unwrap();
+            assert_eq!(miller_rabin(&prime), true);
+        }
+    }
+
+    #[test]
+    fn continuous_test() {
+        let primes = get_max_primes(100000);
+
+        for prime in primes {
             assert_eq!(miller_rabin(&prime), true);
         }
     }
