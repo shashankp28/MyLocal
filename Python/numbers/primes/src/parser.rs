@@ -8,6 +8,7 @@ pub enum Action {
     MillerRabin,
     Generate,
     Power,
+    LucasLehmer,
 }
 
 #[derive(Parser, Debug)]
@@ -28,6 +29,10 @@ pub struct Args {
     /// Number upto which primes to be generated (Only used when analysis is `generate`)
     #[arg(short, long)]
     pub maximum: Option<u64>,
+
+    /// The exponent of mercenne prime for lucas lehmer test (Only used when analysis is `lucas-lehmer`)
+    #[arg(short, long)]
+    pub mercenne_exp: Option<BigUint>,
 }
 
 impl Args {
@@ -62,6 +67,17 @@ impl Args {
             Some(maximum) => maximum,
             None => {
                 println!("Use <exe> --help for more information (--maximum is required)");
+                std::process::exit(1);
+            }
+        }
+    }
+
+    pub fn get_mercenne_exp(&self) -> BigUint {
+        let mercenne_power = self.mercenne_exp.clone();
+        match mercenne_power {
+            Some(mercenne_power) => mercenne_power,
+            None => {
+                println!("Use <exe> --help for more information (--mercenne_power is required)");
                 std::process::exit(1);
             }
         }

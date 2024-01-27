@@ -7,7 +7,7 @@ use clap::Parser;
 use std::time::Instant;
 use parser::Args;
 use generators::get_max_primes;
-use primality::{ standard, fermat, miller_rabin };
+use primality::{ standard, fermat, miller_rabin, lucas_lehmer_test };
 use operations::pow;
 
 fn main() {
@@ -40,6 +40,11 @@ fn main() {
             let target = args.get_target();
             let is_prime = miller_rabin(&target);
             println!("Miller Rabin Test: {} is prime: {}", target, is_prime);
+        }
+        parser::Action::LucasLehmer => {
+            let exp = args.get_mercenne_exp();
+            let is_prime = lucas_lehmer_test(&exp);
+            println!("Lucas Lehmer Test: M{} is prime: {}", exp, is_prime);
         }
     }
     let taken = now.elapsed();
