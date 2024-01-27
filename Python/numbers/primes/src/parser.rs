@@ -32,7 +32,7 @@ pub struct Args {
 
     /// The exponent of mercenne prime for lucas lehmer test (Only used when analysis is `lucas-lehmer`)
     #[arg(short, long)]
-    pub mercenne_exp: Option<BigUint>,
+    pub mersenne_exp: Option<BigUint>,
 }
 
 impl Args {
@@ -73,7 +73,7 @@ impl Args {
     }
 
     pub fn get_mercenne_exp(&self) -> BigUint {
-        let mercenne_power = self.mercenne_exp.clone();
+        let mercenne_power = self.mersenne_exp.clone();
         match mercenne_power {
             Some(mercenne_power) => mercenne_power,
             None => {
