@@ -24,6 +24,6 @@ int main()
         cout << "Expansion(" << i + 1 << ") = " << N << " / " << D << "\n";
         count += to_string(N).size() > to_string(D).size();
     }
-        cout << "Count = " << count;
+        cout << "Count = " << count << "\n";
     return 0;
 }
