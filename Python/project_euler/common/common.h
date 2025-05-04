@@ -11,9 +11,6 @@ vector<bool> createPrimeTable(int n);
 int combinations(int n, int r);
 bool isPalindrome(string str);
 int digitSum(string num);
-string stringNumAdd(string s1, string s2);
-string stringNumExponent(int a, int b);
-string stringNumMultiply(string s1, string s2);
 template <typename T>
 void printVector(const vector<T> &vec)
 {

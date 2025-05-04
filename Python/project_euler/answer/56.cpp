@@ -1,6 +1,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include <common.h>
+#include <BigInt.hpp>
 
 using namespace std;
 
@@ -11,9 +12,9 @@ int main()
     {
         for (int b = 1; b < 100; b++)
         {
-            string exp = stringNumExponent(a, b);
+            BigInt exp = pow(BigInt(a), b);
             cout << a << " ^ " << b << " = " << exp << "\n";
-            int currSum = digitSum(exp);
+            int currSum = digitSum(exp.to_string());
             if (currSum > maxSum)
             {
                 maxSum = currSum;
