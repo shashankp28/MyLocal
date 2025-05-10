@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
-#include "common.h"
+#include <bits/stdc++.h>
+#include <common.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,6 +36,19 @@ vector<bool> createPrimeTable(int n)
 	return result;
 }
 
+vector<int> createPrimeList(int n)
+{
+	vector<int> result;
+	vector<bool> primes = createPrimeTable(n);
+	for (int i = 0; i <= n; i++)
+	{
+		if(primes[i]) {
+			result.push_back(i);
+		}
+	}
+	return result;
+}
+
 int combinations(int n, int r)
 {
 	if (r == 0 || r == n)
@@ -61,4 +76,26 @@ int digitSum(string num)
 		sum += ch - '0';
 	}
 	return sum;
+}
+
+vector<vector<int>> generateCombinations(vector<int> &elements, int r)
+{
+	vector<vector<int>> result;
+	int n = elements.size();
+	if (r > n || r < 0)
+		return result;
+
+	vector<bool> select(n, false);
+	fill(select.end() - r, select.end(), true);
+
+	do
+	{
+		vector<int> combination;
+		for (int i = 0; i < n; ++i)
+			if (select[i])
+				combination.push_back(elements[i]);
+		result.push_back(combination);
+	} while (next_permutation(select.begin(), select.end()));
+
+	return result;
 }
