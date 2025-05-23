@@ -7,8 +7,8 @@
 
 using namespace std;
 
-int n;                   // number of nodes
-vector<vector<int>> adj; // adjacency list
+int n;
+vector<vector<int>> adj;
 
 bool isSafe(int v, int color, vector<int> &colors)
 {
