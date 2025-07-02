@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Photo Album</title>
+		<link rel="stylesheet" href="/static/main.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div id="sidebar">
+				<ul id="image-list"></ul>
+			</div>
+
+			<div id="image-display">
+				<div class="controls">
+					<button id="prev">⏮ Prev</button>
+					<button id="next">Next ⏭</button>
+					<button id="rotate-left">⟲ Left</button>
+					<button id="rotate-right">⟳ Right</button>
+					<a id="download" href="#" target="_blank" download>⬇️ Download HD</a>
+				</div>
+				<div id="image-container">
+					<!-- Image will be inserted here dynamically -->
+				</div>
+			</div>
+		</div>
+
+		<script src="/static/main.js"></script>
+	</body>
+</html>
