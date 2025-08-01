@@ -2,3 +2,6 @@ chromatic
 temp_graph.col
 graphs/
 matrix.adj
+temp.ipynb
+refs.tst
+*.pem
